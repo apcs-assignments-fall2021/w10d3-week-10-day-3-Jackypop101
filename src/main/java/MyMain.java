@@ -38,22 +38,47 @@ public class MyMain {
 
     // Counts the number of odd numbers in list
     public static int countOdd(ArrayList<Integer> list) {
-        // REPLACE WITH YOUR CODE
-        return 0;
+        int w = 0;
+        for (int i = 0; i < list.size(); i ++) {
+            if ((list.get(i) % 2 == 1) || (list.get(i) % 2 == -1)) {
+                w += 1;
+            }
+        }
+            return w;
     }
 
     // Takes an int[] as input and returns the equivalent ArrayList<Integer>
     // Unlike the other methods, the input is an array!
     public static ArrayList<Integer> convertToArrayList(int[] arr) {
-        // REPLACE WITH YOUR CODE
-        return null;
+        ArrayList<Integer> list2 = new ArrayList<Integer>();
+        for (int i = 0; i < arr.length; i++){
+            list2.add(arr[i]);
+        }
+        return list2;
     }
 
     // Takes two **sorted** ArrayLists and merges them together into one big sorted ArrayList
     // (Hint: you may find it useful to use a while loop, as well as the remove() method).
     public static ArrayList<Integer> merge(ArrayList<Integer> list1, ArrayList<Integer> list2) {
-        // REPLACE WITH YOUR CODE
-        return null;
+        int w = 0;
+        while (list2.size() != 0){
+                list1.add(list2.get(0));
+                list2.remove(0);
+        }
+        for (int i = 0; i < list1.size() - 1; i++)
+            // loop to compare array elements
+            for (int j = 0; j < list1.size() - i - 1; j++)
+
+                // compare two adjacent elements
+                // change > to < to sort in descending order
+                if (list1.get(j) > list1.get(j + 1)) {
+                    // swapping occurs if elements
+                    // are not in the intended order
+                    int temp = list1.get(j);
+                    list1.set(j, list1.get(j+1));
+                    list1.set(j+1, temp);
+                }
+        return list1;
     }
 
 
